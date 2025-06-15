@@ -10,7 +10,7 @@
     "prettier": "prettier --write .",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name init",
-    "prepare": "husky"
+    "prepare": "husky && yarn prisma:generate"
   },
   "dependencies": {
     "@langchain/community": "^0.3.45",
