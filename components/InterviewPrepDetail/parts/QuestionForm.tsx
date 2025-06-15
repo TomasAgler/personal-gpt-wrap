@@ -43,7 +43,7 @@ export const QuestionForm = ({
     <form onSubmit={handleQuestionSubmit}>
       <textarea
         name='answer'
-        rows={4}
+        rows={10}
         className='w-full p-2 border rounded mb-4 text-zinc-900 bg-white disabled:bg-gray-400'
         placeholder='Your answer...'
         required
