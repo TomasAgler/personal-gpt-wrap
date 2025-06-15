@@ -70,6 +70,8 @@ export const updateInterviewQuestion = async (data: InterviewPrepQuestion) => {
     data: {
       answer: data.answer,
       evaluation: data.evaluation,
+      score: data.score,
+      improvementTip: data.improvementTip,
     },
   });
   await disconnect();
