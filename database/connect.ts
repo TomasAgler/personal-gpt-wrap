@@ -88,3 +88,18 @@ export const getAllInterviews = async () => {
   await disconnect();
   return result;
 };
+
+export const deleteInterview = async (id: number) => {
+  await connect();
+  await prisma.interviewPrepQuestion.deleteMany({
+    where: {
+      interviewPrepId: id,
+    },
+  });
+  await prisma.interviewPrep.delete({
+    where: {
+      id,
+    },
+  });
+  await disconnect();
+};

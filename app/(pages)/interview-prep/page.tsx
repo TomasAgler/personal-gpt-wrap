@@ -7,7 +7,6 @@ export const dynamic = 'force-dynamic';
 
 const InterviewPrep = async () => {
   const interviewPreps = await getAllInterviews();
-
   return (
     <>
       <Heading title='Interview Prep' />

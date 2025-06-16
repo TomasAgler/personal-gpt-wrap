@@ -4,14 +4,15 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
 
-export const LoginPageForm = () => {
+export const LoginPageForm = ({ redirect }: { redirect?: string }) => {
   const [passKey, setPassKey] = useState('');
   const router = useRouter();
+  console.log('LoginPageForm', redirect);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     Cookies.set('ai-passkey', passKey, { expires: 24 * 60 * 60 * 1000 }); // 1 day
-    router.push('/');
+    router.push(redirect || '/');
   };
 
   return (

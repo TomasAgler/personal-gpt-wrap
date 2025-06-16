@@ -49,7 +49,7 @@ export const QuestionForm = ({
         required
         value={answer}
         onChange={(e) => setAnswer(e.target.value)}
-        disabled={!!question?.evaluation}
+        disabled={isLoading.current || !!question?.evaluation}
       ></textarea>
       <button
         type='submit'

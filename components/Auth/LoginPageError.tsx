@@ -2,13 +2,13 @@
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 
-export const LoginPageError = () => {
+export const LoginPageError = ({ redirect }: { redirect?: string }) => {
   const router = useRouter();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     Cookies.remove('ai-passkey');
-    router.push('/auth/login');
+    router.push(`/auth/login?redirect=${redirect || '/'}`);
   };
 
   return (
