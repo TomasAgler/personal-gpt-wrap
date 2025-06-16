@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 
 export const PrepForm = () => {
   const router = useRouter();
@@ -12,7 +12,8 @@ export const PrepForm = () => {
   const isPending = useRef(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = () => {
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
     isPending.current = true;
     fetch('/api/interview-prep', {
       method: 'POST',
@@ -21,7 +22,7 @@ export const PrepForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        router.push(`/interview-prep/${data}`);
+        router.push(`/interview-prep/${data.data}`);
       })
       .catch((error) => {
         setError(['Failed to create interview prep:', error].join(' '));
@@ -77,7 +78,7 @@ export const PrepForm = () => {
           className='px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 hover:cursor-pointer'
           disabled={isPending.current}
         >
-          {isPending ? 'Loading...' : 'Send'}
+          {isPending.current ? 'Loading...' : 'Send'}
         </button>
         {error && <div className='text-red-500 mt-2'>{error}</div>}
       </form>
