@@ -3,6 +3,8 @@ import { PrepForm } from '@/components/InterviewPrep/PrepForm';
 import { PrepList } from '@/components/InterviewPrep/PrepList';
 import { getAllInterviews } from '@/database';
 
+export const dynamic = 'force-dynamic';
+
 const InterviewPrep = async () => {
   const interviewPreps = await getAllInterviews();
 
