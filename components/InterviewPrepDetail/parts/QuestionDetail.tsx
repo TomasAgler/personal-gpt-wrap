@@ -18,8 +18,7 @@ export const QuestionDetail = ({ interview }: InterviewPrepDetailProps) => {
   return (
     <div className='flex flex-col md:flex-1/2 gap-6'>
       <p>
-        <strong className='text-xl ml-2'>Question:</strong>
-        {question.question}
+        <strong className='text-xl ml-2'>Question:</strong> {question.question}
       </p>
       <div className='flex justify-around'>
         <QuestionButton

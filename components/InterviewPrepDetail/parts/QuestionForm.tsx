@@ -56,10 +56,10 @@ export const QuestionForm = ({
         className='px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-600 cursor:pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-600'
         disabled={isLoading.current || !!question?.evaluation}
       >
-        {!!question?.evaluation
-          ? 'Evaluation already submitted'
-          : isLoading.current
-            ? 'Submitting...'
+        {isLoading.current
+          ? 'Submitting...'
+          : !!question?.evaluation
+            ? 'Evaluation already submitted'
             : 'Submit Answer'}
       </button>
     </form>
